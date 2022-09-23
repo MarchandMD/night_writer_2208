@@ -1,4 +1,5 @@
 require './lib/message_processor'
+require './lib/file_processor'
 require './lib/dictionary'
 require 'simplecov'
 SimpleCov.start
