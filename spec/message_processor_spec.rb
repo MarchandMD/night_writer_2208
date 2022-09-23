@@ -1,9 +1,14 @@
 require 'spec_helper'
 
 RSpec.describe MessageProcessor do
+  msg = MessageProcessor.new
+
   it 'exists' do
-    msg = MessageProcessor.new
     expect(msg).to be_a MessageProcessor
+  end
+
+  it 'has @input' do
+    expect(msg.input).to be_a FileProcessor
   end
 
   describe '#process' do
