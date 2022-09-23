@@ -3,7 +3,9 @@ class MessageProcessor
 
   def process
     if ARGV.length > 1
-      puts "Created #{ARGV[1]} containing 256 characters"
+      file_to_be_read = File.open(ARGV[0], 'r')
+      contents = file_to_be_read.read
+      puts "Created #{ARGV[1]} containing #{contents.length} characters"
     else
       puts "Created 'braille.txt' containing 256 characters"
     end
