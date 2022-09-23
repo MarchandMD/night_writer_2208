@@ -11,6 +11,10 @@ RSpec.describe MessageProcessor do
     expect(msg.input).to be_a FileProcessor
   end
 
+  it 'has @contents set to nil by default' do
+    expect(msg.contents).to eq(nil)
+  end
+
   describe '#process' do
     it 'puts a line of text to the terminal' do
       msg = MessageProcessor.new
