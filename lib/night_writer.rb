@@ -36,4 +36,11 @@ class NightWriter
   def more_than_forty_braille_characters?
     @braille_data[0].length > 80
   end
+
+  def write_the_braille_data(array)
+    array.each do |row_of_braille|
+      @file_handler.output.write(row_of_braille)
+      @file_handler.output.write("\n")
+    end
+  end
 end
