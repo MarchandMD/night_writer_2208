@@ -1,3 +1,3 @@
-require './lib/message_processor'
+require './lib/dictionary'
+require './lib/file_processor'
 
-MessageProcessor.new.process
