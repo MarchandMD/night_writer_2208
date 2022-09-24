@@ -1,4 +1,4 @@
-require './lib/message_processor'
+require './lib/night_writer'
 require './lib/file_processor'
 require './lib/dictionary'
 require 'simplecov'
