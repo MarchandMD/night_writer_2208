@@ -7,8 +7,5 @@ class FileProcessor
     @file_contents = nil
   end
 
-  def open_input(path)
-    @input_file = File.open(path, "r")
-    @file_contents = @input_file.read
-  end
+  
 end
