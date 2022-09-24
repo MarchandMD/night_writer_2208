@@ -12,6 +12,10 @@ class FileProcessor
     @input.read
   end
 
+  def separate_letters
+    read_contents.split('')
+  end
+
   def write_file
     @output = File.open(@output_filename, 'w')
   end
