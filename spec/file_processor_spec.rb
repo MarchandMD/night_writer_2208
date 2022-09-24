@@ -30,7 +30,7 @@ RSpec.describe 'FileProcessor' do
   describe '#separate_letters' do
     fp = FileProcessor.new({ input: 'sample.txt', output: 'braille.txt' })
     it 'turns a string into an array' do
-      allow(separate_letters).to receive(:read_contents) { "a" }
+      # allow(fp.separate_letters).to receive(:read_contents) { "a" }
         expect(fp.separate_letters).to eq(['a'])
     end
   end
