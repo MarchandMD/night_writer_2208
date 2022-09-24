@@ -71,3 +71,5 @@ class NightWriter
     print_a_confirmation_message
   end
 end
+
+NightWriter.new.process
