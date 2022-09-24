@@ -1,7 +1,7 @@
 require './lib/dictionary'
 require './lib/file_processor'
 
-class NightWriter
+class NightReader
   attr_reader :file_handler, :dictionary, :braille_array, :braille_data
 
   def initialize(file_handler = FileProcessor.new)
@@ -72,4 +72,4 @@ class NightWriter
   end
 end
 
-NightWriter.new.process
+NightReader.new.process
