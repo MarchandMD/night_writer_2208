@@ -41,6 +41,31 @@ RSpec.describe NightWriter do
     end
   end
 
+  describe '#fewer_than_forty_braille_characters?' do
+    it 'returns true if @braille_data is <= 80 characters' do
+      expect(night_writer.fewer_than_forty_braille_characters?).to eq(true)
+    end
+  end
+
+  describe '#more_than_forty_braille_characters?' do
+    it 'returns true if #braille_data is > 80 characters' do
+      80.times do
+        night_writer.braille_data[0] << "."
+      end
+      expect(night_writer.braille_data[0].length).to be > 80
+      expect(night_writer.more_than_forty_braille_characters?).to eq(true)
+    end
+  end
+
+  describe '#write_the_braille_data' do
+    xit 'writes to the output file' do
+    end
+  end
   
+  describe '#write_the_braille_data' do
+    xit 'writes to the output file' do
+    end
+  end
+
 
 end

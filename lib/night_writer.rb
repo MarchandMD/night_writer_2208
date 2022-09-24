@@ -28,4 +28,12 @@ class NightWriter
       @braille_data[2] += "#{braille_letter[2][0]}#{braille_letter[2][1]}"
     end
   end
+
+  def fewer_than_forty_braille_characters?
+    @braille_data[0].length <= 80
+  end
+
+  def more_than_forty_braille_characters?
+    @braille_data[0].length > 80
+  end
 end
