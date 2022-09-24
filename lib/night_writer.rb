@@ -16,4 +16,8 @@ class NightWriter
       @dictionary.to_braille(x)
     end
   end
+
+  def print_a_confirmation_message
+    puts "Created #{@file_handler.output_filename} containing #{@braille_array.length} characters"
+  end
 end
