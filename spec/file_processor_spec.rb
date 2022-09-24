@@ -18,4 +18,11 @@ RSpec.describe 'FileProcessor' do
       expect(fp.write_file).to be_a File
     end
   end
+
+  describe '#read_contents' do
+    fp = FileProcessor.new({input: 'sample.txt', output: 'braille.txt'})
+    it 'can make @input a File object' do
+      expect(fp.read_contents).to be_a File
+    end
+  end
 end
