@@ -43,4 +43,11 @@ class NightWriter
       @file_handler.output.write("\n")
     end
   end
+
+  def write_then_remove_the_braille_data(array)
+    array.each do |row_of_braille|
+      @file_handler.output.write(row_of_braille.slice!(0, 80))
+      @file_handler.output.write("\n")
+    end
+  end
 end

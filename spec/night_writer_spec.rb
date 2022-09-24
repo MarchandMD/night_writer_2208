@@ -61,8 +61,8 @@ RSpec.describe NightWriter do
     xit 'writes to the output file' do
     end
   end
-  
-  describe '#write_the_braille_data' do
+
+  describe '#write_then_remove_the_braille_data' do
     xit 'writes to the output file' do
     end
   end
