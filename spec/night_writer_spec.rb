@@ -67,5 +67,11 @@ RSpec.describe NightWriter do
     end
   end
 
+  describe '#braille_data_all_gone?' do
+    it 'determines if all the braille_data has been written' do
+      expect(night_writer.braille_data_all_gone?).to be true
+    end
+
+  end
 
 end
