@@ -64,4 +64,10 @@ class NightWriter
       end
     end
   end
+
+  def process
+    extract_individual_rows_from_braille
+    write_to_file
+    print_a_confirmation_message
+  end
 end

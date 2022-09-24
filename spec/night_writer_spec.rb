@@ -82,5 +82,4 @@ RSpec.describe NightWriter do
 
   end
 
-
 end
