@@ -1,20 +1,29 @@
 require 'spec_helper'
 
 RSpec.describe 'FileProcessor' do
+  fp = FileProcessor.new({input: 'sample.txt', output: 'braille.txt'})
+
   it 'exists' do
-    fp = FileProcessor.new
     expect(fp).to be_a FileProcessor
   end
 
-  it 'has @input_file set to nil by default' do
-    fp = FileProcessor.new
-    expect(fp).to have_attributes({input_file: nil})
+  it 'has @input and @output_filename' do
+    expect(fp.input).to eq('sample.txt')
+    expect(fp.output_filename).to eq('braille.txt')
   end
 
-  describe '#open_input' do
-    it 'opens a file and reads the contents' do
-      fp = FileProcessor.new
-      expect(fp.open_input(ARGV[0])).to be_a File
+  describe '#write_file' do
+    fp = FileProcessor.new({input: 'sample.txt', output: 'braille.txt'})
+    it 'can create a writable File object' do
+      expect(fp.write_file).to be_a File
+    end
+  end
+
+  describe '#read_contents' do
+    fp = FileProcessor.new({ input: 'sample.txt', output: 'braille.txt' })
+    it 'can make @input a File object' do
+      fp.read_contents
+      expect(fp.input).to be_a File
     end
   end
 end

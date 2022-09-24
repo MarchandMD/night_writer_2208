@@ -1,14 +1,18 @@
 class FileProcessor
+  attr_reader :input, :output, :output_filename, :contents
 
-  attr_reader :input_file, :file_contents
-
-  def initialize
-    @input_file = nil
-    @file_contents = nil
+  def initialize(input = { input: ARGV[0], output: ARGV[1] })
+    @input = input.fetch(:input)
+    @output_filename = input.fetch(:output)
+    @output = write_file
   end
 
-  def open_input(path)
-    @input_file = File.open(path, "r")
-    @file_contents = @input_file.read
+  def read_contents
+    @input = File.open(@input, 'r')
+    @input.read
+  end
+
+  def write_file
+    @output = File.open(@output_filename, 'w')
   end
 end
