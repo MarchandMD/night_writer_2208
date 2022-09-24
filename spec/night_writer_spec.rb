@@ -31,4 +31,16 @@ RSpec.describe NightWriter do
       end.to output("Created #{night_writer.file_handler.output_filename} containing #{night_writer.braille_array.length} characters\n").to_stdout
     end
   end
+
+  describe '#extract_individual_rows_from_braille' do
+    it 'moves each row of a braille character into @braille_data' do
+      night_writer.extract_individual_rows_from_braille
+      expect(night_writer.braille_data[0]).to eq("0.")
+      expect(night_writer.braille_data[1]).to eq("..")
+      expect(night_writer.braille_data[2]).to eq("..")
+    end
+  end
+
+  
+
 end

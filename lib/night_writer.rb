@@ -20,4 +20,12 @@ class NightWriter
   def print_a_confirmation_message
     puts "Created #{@file_handler.output_filename} containing #{@braille_array.length} characters"
   end
+
+  def extract_individual_rows_from_braille
+    @braille_array.each do |braille_letter|
+      @braille_data[0] += "#{braille_letter[0][0]}#{braille_letter[0][1]}"
+      @braille_data[1] += "#{braille_letter[1][0]}#{braille_letter[1][1]}"
+      @braille_data[2] += "#{braille_letter[2][0]}#{braille_letter[2][1]}"
+    end
+  end
 end
