@@ -50,4 +50,8 @@ class NightWriter
       @file_handler.output.write("\n")
     end
   end
+
+  def braille_data_all_gone?
+    @braille_data[0].length <= 0
+  end
 end
