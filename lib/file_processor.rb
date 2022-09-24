@@ -7,6 +7,11 @@ class FileProcessor
     @output = write_file
   end
 
+  def read_contents
+    @input = File.open(@input, 'r')
+    @input.read
+  end
+
   def write_file
     @output = File.open(@output_filename, 'w')
   end
