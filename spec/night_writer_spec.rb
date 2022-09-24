@@ -75,4 +75,11 @@ RSpec.describe NightWriter do
 
   end
 
+  describe '#write_to_file' do
+    xit 'writes to the output file' do
+      expect(subject).to eq(value)
+    end
+
+  end
+
 end

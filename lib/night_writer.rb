@@ -54,4 +54,22 @@ class NightWriter
   def braille_data_all_gone?
     @braille_data[0].length <= 0
   end
+
+  def write_to_file
+    if fewer_than_forty_braille_characters?
+      write_the_braille_data(@braille_data)
+    elsif more_than_forty_braille_characters?
+      until braille_data_all_gone?
+        write_then_remove_the_braille_data(@braille_data)
+      end
+    end
+  end
+
+  def process
+    extract_individual_rows_from_braille
+    write_to_file
+    print_a_confirmation_message
+  end
 end
+
+NightWriter.new.process
