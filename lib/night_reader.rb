@@ -29,5 +29,10 @@ class NightReader
     end
   end
 
-  
+  def create_braille_pairs
+    @input_data = @file_handler.parse_braille
+    @array_from_parsed_braille = @input_data.scan(/../)
+    @array_from_parsed_braille = @array_from_parsed_braille.map { |braille_pair| braille_pair.split('') }
+  end
+
 end

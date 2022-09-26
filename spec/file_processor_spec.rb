@@ -34,4 +34,9 @@ RSpec.describe 'FileProcessor' do
         expect(fp.separate_letters).to eq(['a'])
     end
   end
+
+  describe '#parse_braille' do
+    xit 'reads the contents, and removes the newline characters' do
+    end
+  end
 end
