@@ -22,4 +22,12 @@ class NightReader
   def character_containers_needed(raw_braille_pairs = @array_from_parsed_braille)
     @characters_in_message = raw_braille_pairs.flatten.length / 6
   end
+
+  def create_character_containers
+    @characters_in_message.times do
+      @message_container << []
+    end
+  end
+
+  
 end

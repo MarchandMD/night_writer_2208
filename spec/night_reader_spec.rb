@@ -43,7 +43,7 @@ RSpec.describe NightReader do
       night_reader.array_from_parsed_braille = [['0'],['.'],['.'],['.'],['.'],['.']]
       expect(night_reader.characters_in_message).to eq(1)
       night_reader.create_character_containers
-      expect(@message_container).to eq([[]])
+      expect(night_reader.message_container).to eq([[]])
     end
   end
 
