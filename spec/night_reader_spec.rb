@@ -47,7 +47,12 @@ RSpec.describe NightReader do
     end
   end
 
-  
+  describe '#create_braille_pairs' do
+    it 'grabs the raw input data, creates braille pairs, and turns them into an array' do
+      expect(night_reader.create_braille_pairs).to eq([["0", "."], [".", "."], [".", "."]])
+    end
+  end
+
 
   describe '#fill_character_containers' do
     xit 'cycles through the @message_container and populates each character_container with the braille data' do

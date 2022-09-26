@@ -19,4 +19,8 @@ class FileProcessor
   def write_file
     @output = File.open(@output_filename, 'w')
   end
+
+  def parse_braille
+    read_contents.gsub!("\n", "")
+  end
 end
