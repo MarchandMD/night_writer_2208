@@ -4,7 +4,7 @@ require './lib/file_processor'
 class NightWriter
   attr_reader :file_handler, :dictionary, :braille_array, :braille_data
 
-  def initialize(file_handler = FileProcessor.new)
+  def initialize(file_handler = FileProcessor.new({input: ARGV[0], output: ARGV[1]}))
     @file_handler = file_handler
     @dictionary = Dictionary.new
     @braille_array = convert_to_braille
@@ -44,8 +44,8 @@ class NightWriter
     end
   end
 
-  def write_then_remove_the_braille_data(array)
-    array.each do |row_of_braille|
+  def write_then_remove_the_braille_data(braille_data)
+    braille_data.each do |row_of_braille|
       @file_handler.output.write(row_of_braille.slice!(0, 80))
       @file_handler.output.write("\n")
     end
@@ -72,4 +72,3 @@ class NightWriter
   end
 end
 
-NightWriter.new.process

@@ -3,6 +3,7 @@ require 'spec_helper'
 RSpec.describe NightWriter do
   file_processor = FileProcessor.new({ input: 'sample.txt', output: 'braille.txt' })
   night_writer = NightWriter.new(file_processor)
+
   it 'exists' do
     expect(night_writer).to be_a NightWriter
   end
