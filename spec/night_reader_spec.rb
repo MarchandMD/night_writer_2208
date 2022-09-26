@@ -38,4 +38,13 @@ RSpec.describe NightReader do
     end
   end
 
+  describe '#create_character_containers' do
+    it 'adds empty arrays to the @message_container, to represent a letter in the message, which will be populated with braille characters' do
+      night_reader.array_from_parsed_braille = [['0'],['.'],['.'],['.'],['.'],['.']]
+      expect(night_reader.characters_in_message).to eq(1)
+      night_reader.create_character_containers
+      expect(@message_container).to eq([[]])
+    end
+  end
+
 end
