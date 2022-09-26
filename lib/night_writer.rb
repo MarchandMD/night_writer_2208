@@ -72,4 +72,3 @@ class NightWriter
   end
 end
 
-# NightWriter.new.process
