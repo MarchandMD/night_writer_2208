@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe NightWriter do
-  file_processor = FileProcessor.new({ input: 'sample.txt', output: 'braille.txt' })
+  file_processor = FileProcessor.new({ input: 'message.txt', output: 'braille.txt' })
   night_writer = NightWriter.new(file_processor)
 
   it 'exists' do
@@ -16,7 +16,7 @@ RSpec.describe NightWriter do
   end
 
   describe '#convert_to_braille' do
-    file_processor = FileProcessor.new({ input: 'sample.txt', output: 'braille.txt' })
+    file_processor = FileProcessor.new({ input: 'message.txt', output: 'braille.txt' })
     night_writer = NightWriter.new(file_processor)
     it 'converts a letter to braille' do
       allow(night_writer).to receive(:convert_to_braille) { [[['0', '.'], ['.', '.'], ['.', '.']]] }
@@ -25,7 +25,7 @@ RSpec.describe NightWriter do
   end
 
   describe '#print_a_confirmation_message' do
-    file_processor = FileProcessor.new({ input: 'sample.txt', output: 'braille.txt' })
+    file_processor = FileProcessor.new({ input: 'message.txt', output: 'braille.txt' })
     night_writer = NightWriter.new(file_processor)
     it 'prints a confirmation message' do
       expect do

@@ -65,12 +65,12 @@ RSpec.describe NightReader do
     end
   end
 
-  describe '#flatten_message' do
+  describe '#flatten_character_containers' do
     it 'reduces the character containers holding multi-dimensional arrays of braille pairs into one-dimensional arrays' do
       expect(night_reader.message_container).to eq([[]])
       night_reader.fill_character_containers
       expect(night_reader.message_container).to eq([[["0", "."], [".", "."], [".", "."]]])
-      night_reader.flatten_message
+      night_reader.flatten_character_containers
       expect(night_reader.message_container).to eq([["0", ".", ".", ".", ".", "."]])
     end
   end

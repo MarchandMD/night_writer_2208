@@ -41,7 +41,7 @@ class NightReader
     @array_of_braille_pairs = @array_of_braille_pairs.map { |braille_pair| braille_pair.split('') }
   end
 
-  def flatten_message
+  def flatten_character_containers
     @message_container = @message_container.map(&:flatten)
   end
 
@@ -64,7 +64,7 @@ class NightReader
       character_containers_needed(raw_braille_pairs)
       create_character_containers
       fill_character_containers(raw_braille_pairs)
-      flatten_message
+      flatten_character_containers
       @message_container.each do |character_container|
         @message << @dictionary[character_container]
       end
