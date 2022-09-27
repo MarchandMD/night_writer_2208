@@ -55,4 +55,23 @@ class NightReader
     end
   end
 
+  def process
+    convert_dictionary
+    create_braille_pairs
+    until @array_from_parsed_braille.count.zero?
+      @message_container = []
+      raw_braille_pairs = @array_from_parsed_braille.slice!(0, 120)
+      character_containers_needed(raw_braille_pairs)
+      create_character_containers
+      fill_character_containers(raw_braille_pairs)
+      flatten_message
+      @message_container.each do |character_container|
+        @message << @dictionary[character_container]
+      end
+    end
+    @file_handler.output.write(@message)
+    print_a_confirmation_message
+  end
+
 end
+
