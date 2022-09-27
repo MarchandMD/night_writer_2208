@@ -45,4 +45,14 @@ class NightReader
     @message_container = @message_container.map(&:flatten)
   end
 
+  def print_a_confirmation_message
+    puts "Created #{@file_handler.output_filename} containing #{@message.length} characters"
+  end
+
+  def grab_the_letters
+    @message_container.each do |character_container|
+      @message << @dictionary[character_container]
+    end
+  end
+
 end

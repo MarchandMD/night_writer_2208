@@ -73,4 +73,24 @@ RSpec.describe NightReader do
       expect(night_reader.message_container).to eq([["0", ".", ".", ".", ".", "."]])
     end
   end
+
+  describe '#print_a_confirmation_message' do
+    it 'sends a confirmation message to the terminal' do
+      expect{ night_reader.print_a_confirmation_message }.to output.to_stdout
+    end
+  end
+
+  describe '#grab_the_letters' do
+    it 'iterates through the message container and grabs letters from the dictonary, and pushes them to @message' do
+      expect(night_reader.message_container).to eq([["0", ".", ".", ".", ".", "."]])
+      night_reader.grab_the_letters
+      expect(night_reader.message).to eq('a')
+    end
+  end
+
+  describe '#write_the_message' do
+    xit 'writes the message to the output file' do
+    end
+  end
+
 end
