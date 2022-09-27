@@ -2,8 +2,8 @@ require './lib/dictionary'
 require './lib/file_processor'
 
 class NightReader
-  attr_reader :file_handler, :dictionary, :message, :message_container, :characters_in_message, :input_data
-  attr_accessor :array_from_parsed_braille
+  attr_reader :file_handler, :dictionary, :message, :message_container, :characters_in_message
+  attr_accessor :array_from_parsed_braille, :input_data
 
   def initialize(file_handler = FileProcessor.new, dictionary = Dictionary.new, array_from_parsed_braille = nil, message = '', message_container = [], input_data = nil)
     @file_handler = file_handler
@@ -36,7 +36,7 @@ class NightReader
   end
 
   def create_braille_pairs
-    @input_data = @file_handler.parse_braille
+    @input_data = @file_handler.read_and_remove_newline_characters
     @array_from_parsed_braille = @input_data.scan(/../)
     @array_from_parsed_braille = @array_from_parsed_braille.map { |braille_pair| braille_pair.split('') }
   end

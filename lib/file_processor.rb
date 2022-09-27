@@ -20,7 +20,7 @@ class FileProcessor
     @output = File.open(@output_filename, 'w')
   end
 
-  def parse_braille
+  def read_and_remove_newline_characters
     read_contents.gsub!("\n", "")
   end
 end

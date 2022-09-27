@@ -1,72 +1,74 @@
 require './lib/dictionary'
 require './lib/file_processor'
+require 'pry'
 
 class NightWriter
-  attr_reader :file_handler, :dictionary, :braille_array, :braille_data
+  attr_reader :file_processor, :dictionary, :rows_of_braille
+  attr_accessor :message_container
 
-  def initialize(file_handler = FileProcessor.new({input: ARGV[0], output: ARGV[1]}))
-    @file_handler = file_handler
+  def initialize(file_processor = FileProcessor.new({input: ARGV[0], output: ARGV[1]}))
+    @file_processor = file_processor
     @dictionary = Dictionary.new
-    @braille_array = convert_to_braille
-    @braille_data = ['', '', '']
+    @message_container = convert_to_braille
+    @rows_of_braille = ['', '', '']
   end
 
   def convert_to_braille
-    @file_handler.separate_letters.map do |x|
+    @file_processor.separate_letters.map do |x|
       @dictionary.to_braille(x)
     end
   end
 
   def print_a_confirmation_message
-    puts "Created #{@file_handler.output_filename} containing #{@braille_array.length} characters"
+    puts "Created #{@file_processor.output_filename} containing #{@message_container.length} characters"
   end
 
-  def extract_individual_rows_from_braille
-    @braille_array.each do |braille_letter|
-      @braille_data[0] += "#{braille_letter[0][0]}#{braille_letter[0][1]}"
-      @braille_data[1] += "#{braille_letter[1][0]}#{braille_letter[1][1]}"
-      @braille_data[2] += "#{braille_letter[2][0]}#{braille_letter[2][1]}"
+  def separate_braille_by_row
+    @message_container.each do |character_container|
+      @rows_of_braille[0] += "#{character_container[0][0]}#{character_container[0][1]}"
+      @rows_of_braille[1] += "#{character_container[1][0]}#{character_container[1][1]}"
+      @rows_of_braille[2] += "#{character_container[2][0]}#{character_container[2][1]}"
     end
   end
 
   def fewer_than_forty_braille_characters?
-    @braille_data[0].length <= 80
+    @rows_of_braille[0].length <= 80
   end
 
   def more_than_forty_braille_characters?
-    @braille_data[0].length > 80
+    @rows_of_braille[0].length > 80
   end
 
-  def write_the_braille_data(array)
-    array.each do |row_of_braille|
-      @file_handler.output.write(row_of_braille)
-      @file_handler.output.write("\n")
+  def write_the_braille_data(separate_braille_rows)
+    separate_braille_rows.each do |row_of_braille|
+      @file_processor.output.write(row_of_braille)
+      @file_processor.output.write("\n")
     end
   end
 
-  def write_then_remove_the_braille_data(braille_data)
-    braille_data.each do |row_of_braille|
-      @file_handler.output.write(row_of_braille.slice!(0, 80))
-      @file_handler.output.write("\n")
+  def write_then_remove_the_braille_data(separate_braille_rows)
+    separate_braille_rows.each do |row_of_braille|
+      @file_processor.output.write(row_of_braille.slice!(0, 80))
+      @file_processor.output.write("\n")
     end
   end
 
   def braille_data_all_gone?
-    @braille_data[0].length <= 0
+    @rows_of_braille[0].length <= 0
   end
 
   def write_to_file
     if fewer_than_forty_braille_characters?
-      write_the_braille_data(@braille_data)
+      write_the_braille_data(@rows_of_braille)
     elsif more_than_forty_braille_characters?
       until braille_data_all_gone?
-        write_then_remove_the_braille_data(@braille_data)
+        write_then_remove_the_braille_data(@rows_of_braille)
       end
     end
   end
 
   def process
-    extract_individual_rows_from_braille
+    separate_braille_by_row
     write_to_file
     print_a_confirmation_message
   end
