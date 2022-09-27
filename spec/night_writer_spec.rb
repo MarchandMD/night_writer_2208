@@ -36,11 +36,11 @@ RSpec.describe NightWriter do
 
   describe '#separate_braille_by_row' do
     it 'moves each row of a braille character into @rows_of_braille' do
-      night_writer.message_container = [[["0", "."], [".", "."], [".", "."]]]
+      night_writer.message_container = [[['0', '.'], ['.', '.'], ['.', '.']]]
       night_writer.separate_braille_by_row
-      expect(night_writer.rows_of_braille[0]).to eq("0.")
-      expect(night_writer.rows_of_braille[1]).to eq("..")
-      expect(night_writer.rows_of_braille[2]).to eq("..")
+      expect(night_writer.rows_of_braille[0]).to eq('0.')
+      expect(night_writer.rows_of_braille[1]).to eq('..')
+      expect(night_writer.rows_of_braille[2]).to eq('..')
     end
   end
 
@@ -53,7 +53,7 @@ RSpec.describe NightWriter do
   describe '#more_than_forty_braille_characters?' do
     it 'returns true if #rows_of_braille is > 80 characters' do
       80.times do
-        night_writer.rows_of_braille[0] << "."
+        night_writer.rows_of_braille[0] << '.'
       end
       expect(night_writer.rows_of_braille[0].length).to be > 80
       expect(night_writer.more_than_forty_braille_characters?).to eq(true)
@@ -75,17 +75,14 @@ RSpec.describe NightWriter do
 
   describe '#braille_data_all_gone?' do
     it 'determines if all the rows_of_braille has been written' do
-      night_writer.rows_of_braille[0] = ""
+      night_writer.rows_of_braille[0] = ''
       expect(night_writer.braille_data_all_gone?).to be true
     end
-
   end
 
   describe '#write_to_file' do
     xit 'writes to the output file' do
       expect(subject).to eq(value)
     end
-
   end
-
 end
