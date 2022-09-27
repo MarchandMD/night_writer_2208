@@ -74,3 +74,5 @@ class NightWriter
   end
 end
 
+# comment the following line prior to running tests
+NightWriter.new.process

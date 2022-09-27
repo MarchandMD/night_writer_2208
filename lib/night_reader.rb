@@ -73,3 +73,6 @@ class NightReader
     print_a_confirmation_message
   end
 end
+
+# comment the following line to pass the test suite
+NightReader.new.process
