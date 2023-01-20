@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe 'FileProcessor' do
-  fp = FileProcessor.new({input: 'message.txt', output: 'braille.txt'})
+  fp = FileProcessor.new({ input: 'message.txt', output: 'braille.txt' })
 
   it 'exists' do
     expect(fp).to be_a FileProcessor
@@ -13,7 +13,7 @@ RSpec.describe 'FileProcessor' do
   end
 
   describe '#write_file' do
-    fp = FileProcessor.new({input: 'message.txt', output: 'braille.txt'})
+    fp = FileProcessor.new({ input: 'message.txt', output: 'braille.txt' })
     it 'can create a writable File object' do
       expect(fp.write_file).to be_a File
     end
@@ -31,7 +31,7 @@ RSpec.describe 'FileProcessor' do
     fp = FileProcessor.new({ input: 'message.txt', output: 'braille.txt' })
     it 'turns a string into an array' do
       allow(fp).to receive(:separate_letters) { ['a'] }
-        expect(fp.separate_letters).to eq(['a'])
+      expect(fp.separate_letters).to eq(['a'])
     end
   end
 

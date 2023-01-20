@@ -21,6 +21,6 @@ class FileProcessor
   end
 
   def read_and_remove_newline_characters
-    read_contents.gsub!("\n", "")
+    read_contents.gsub!("\n", '')
   end
 end

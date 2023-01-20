@@ -6,7 +6,7 @@ class NightWriter
   attr_reader :file_processor, :dictionary, :rows_of_braille
   attr_accessor :message_container
 
-  def initialize(file_processor = FileProcessor.new({input: ARGV[0], output: ARGV[1]}))
+  def initialize(file_processor = FileProcessor.new({ input: ARGV[0], output: ARGV[1] }))
     @file_processor = file_processor
     @dictionary = Dictionary.new
     @message_container = convert_to_braille
@@ -61,9 +61,7 @@ class NightWriter
     if fewer_than_forty_braille_characters?
       write_the_braille_data(@rows_of_braille)
     elsif more_than_forty_braille_characters?
-      until braille_data_all_gone?
-        write_then_remove_the_braille_data(@rows_of_braille)
-      end
+      write_then_remove_the_braille_data(@rows_of_braille) until braille_data_all_gone?
     end
   end
 
@@ -75,4 +73,4 @@ class NightWriter
 end
 
 # comment the following line prior to running tests
-NightWriter.new.process
+# NightWriter.new.process
