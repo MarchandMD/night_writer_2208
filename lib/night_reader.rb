@@ -5,7 +5,8 @@ class NightReader
   attr_reader :file_handler, :dictionary, :message, :message_container, :characters_in_message
   attr_accessor :array_of_braille_pairs, :input_data
 
-  def initialize(file_handler = FileProcessor.new, dictionary = Dictionary.new, array_of_braille_pairs = nil, message = '', message_container = [], input_data = nil)
+  def initialize(file_handler = FileProcessor.new, dictionary = Dictionary.new, array_of_braille_pairs = nil,
+                 message = '', message_container = [], input_data = nil)
     @file_handler = file_handler
     @dictionary = dictionary
     @array_of_braille_pairs = array_of_braille_pairs
@@ -75,4 +76,4 @@ class NightReader
 end
 
 # comment the following line to pass the test suite
-NightReader.new.process
+# NightReader.new.process
