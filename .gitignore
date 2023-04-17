@@ -2,4 +2,4 @@ sample/
 coverage/
 .rubocop.yml
 .DS_Store
-.txt
+*.txt
