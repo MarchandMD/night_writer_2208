@@ -102,7 +102,7 @@ What did I learn building this:
 
 ### Prerequisites
 
-n/a
+ruby v2.7.4
 
 ### Installation
 
@@ -121,12 +121,32 @@ n/a
 
 ## Usage
 
-It's pretty straight-forward to use this. Once it's on your machine and you `cd` into the repo, in the commandline run
+### Text to Braille
+
+1. `cd` into the `night_writer` directory
+2. Open the `text_message_here.txt` file
+3. Type a simple message (no punctuation, all lowercase)
+4. in the commandline/terminal, run the command
 
 ```bs
-ruby reader_runner.rb
+ruby braille_writer.rb text_message_here.txt braille_message_here.txt
+
+$ Created braille_message_here.txt containing <n> characters
 ```
 
+where `n` is equal to the number of characters included in your message
+
+### Braille to Text
+
+The easiest implementation here is to delete the original message from `text_message_here.txt`, then do the following:
+
+```bs
+ruby braille_reader.rb braille_message_here.txt text_message_here.txt
+
+$ Created text_message_here.txt containing <n> characters
+```
+
+Ta Da! 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
