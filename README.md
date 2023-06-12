@@ -35,6 +35,7 @@
   <p align="center">
     Text translator from and to standard braille characters
     <br />
+    <img src="./assets/images/screenshot1.png">
     <a href="https://github.com/marchandmd/night_writer_2208"><strong>Explore the docs »</strong></a>
     <br />
     <br />
@@ -47,7 +48,7 @@
 </div>
 
 <!-- TABLE OF CONTENTS -->
-<details>
+
   <summary>Table of Contents</summary>
   <ol>
     <li>
@@ -70,7 +71,6 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
-</details>
 
 <!-- ABOUT THE PROJECT -->
 
@@ -80,12 +80,11 @@ This project converts text from Braille into standard English, and vice versa
 
 What did I learn building this:
 
-- Encapsulation, Abstraction
-- Principles of OOP
-- Object instantiation
-- Reading to and from files
-- .gitignore
-
+-   Encapsulation, Abstraction
+-   Principles of OOP
+-   Object instantiation
+-   Reading to and from files
+-   .gitignore
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -121,32 +120,49 @@ ruby v2.7.4
 
 ## Usage
 
+[I want to write Text to Braille](#text-to-braille)
+[I want to write Braille to Text](#braille-to-text)
+
 ### Text to Braille
 
 1. `cd` into the `night_writer` directory
 2. Open the `text_message_here.txt` file
 3. Type a simple message (no punctuation, all lowercase)
-4. in the commandline/terminal, run the command
+4. Copy this command:
 
 ```bs
 ruby braille_writer.rb text_message_here.txt braille_message_here.txt
+```
 
+5. Paste it in the Terminal and hit `return`
+
+The terminal will then display the following message if it was successful:
+
+```bs
 $ Created braille_message_here.txt containing <n> characters
 ```
 
-where `n` is equal to the number of characters included in your message
+Open `braille_message_here.txt` to see the braille message generated from text!
 
 ### Braille to Text
 
-The easiest implementation here is to delete the original message from `text_message_here.txt`, then do the following:
+1. Delete the text message from `text_message_here.txt`,
+2. copy this command:
 
 ```bs
 ruby braille_reader.rb braille_message_here.txt text_message_here.txt
+```
 
+3. paste in the terminal and hit `return`
+If it was successful you'll see this text in terminal:
+
+```bs
 $ Created text_message_here.txt containing <n> characters
 ```
 
-Ta Da! 
+4. Open `text_message_here.txt` to see the text generated from Braille!
+
+Ta-Da!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -154,12 +170,12 @@ Ta Da!
 
 ## Roadmap
 
-- README
-- [ ] images of project
-- [ ] complete extensions
-- [ ] add rspec gem
-- [ ] bundle
-- [ ] improve test coverage
+-   README
+-   [x] images of project
+-   [ ] complete extensions
+-   [ ] add rspec gem
+-   [ ] bundle
+-   [ ] improve test coverage
 
 See the [open issues](https://github.com/marchandmd/night_writer_2208/issues) for a full list of proposed features (and known issues).
 
