@@ -173,10 +173,9 @@ Ta-Da!
 
 -   README
 -   [x] images of project
+-   [x] add rspec gem
 -   [ ] complete extensions
--   [ ] add rspec gem
--   [ ] bundle
--   [ ] improve test coverage
+
 
 See the [open issues](https://github.com/marchandmd/night_writer_2208/issues) for a full list of proposed features (and known issues).
 
