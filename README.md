@@ -121,6 +121,7 @@ ruby v2.7.4
 ## Usage
 
 [I want to write Text to Braille](#text-to-braille)
+
 [I want to write Braille to Text](#braille-to-text)
 
 ### Text to Braille
